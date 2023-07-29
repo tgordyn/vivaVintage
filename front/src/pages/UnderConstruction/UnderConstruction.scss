@@ -1,0 +1,25 @@
+.under-construction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+  }
+  
+  .construction-image {
+    width: 400px;
+    height: auto;
+  }
+  
+  .construction-title {
+    font-size: 32px;
+    margin-top: 20px;
+  }
+  
+  .construction-message {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #888;
+  }
+  

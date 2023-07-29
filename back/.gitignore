@@ -1,0 +1,87 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Maven
+target/
+
+# Gradle
+build/
+.gradle/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Logs
+log/
+logs/
+
+# Compiled files
+*.class
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Application properties
+application.properties
+
+# Spring Boot DevTools
+.restart
+
+# H2 database
+.h2.*
+
+# Thymeleaf
+target/
+
+# Visual Studio Code
+.vscode/
+
+# Spring Tool Suite (STS)
+.springBeans
+
+# Mac OS
+.DS_Store
+
+# Windows
+Thumbs.db
+

@@ -1,0 +1,48 @@
+trigger:
+  branches:
+    include:
+      - releases 
+
+variables:
+  frontDockerfilePath: 'front/Dockerfile'
+  backDockerfilePath: 'back/Dockerfile'
+  buildTag: '$(Build.BuildId)'
+  latestTag: 'latest'
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+
+- stage: 'Release_Docker_Hub'
+  displayName: 'Release Components into DockerHub'
+  jobs:
+  - job: 'BackDockerHub'
+    steps:
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'dockerhubRepository'
+        repository: 'ovas04/back-vivavintage'
+        command: 'buildAndPush'
+        Dockerfile: '$(backDockerfilePath)'
+        buildContext: '$(System.DefaultWorkingDirectory)/back/'
+        tags: |
+          $(buildTag)
+          release-back
+          $(latestTag)
+      displayName: Release Backend Into DockerHub
+
+  - job: 'FrontDockerHub'
+    steps:
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'dockerhubRepository'
+        repository: 'ovas04/front-vivavintage'
+        command: 'buildAndPush'
+        Dockerfile: '$(frontDockerfilePath)'
+        buildContext: '$(System.DefaultWorkingDirectory)/front/'
+        tags: |
+          $(buildTag)
+          release-front
+          $(latestTag)
+      displayName: "Release FrontEnd Into DockerHub"

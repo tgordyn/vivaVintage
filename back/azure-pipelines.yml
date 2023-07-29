@@ -1,0 +1,107 @@
+trigger:
+  branches:
+    include:
+      - develop
+  paths:
+    include:
+      - back/*
+    exclude:
+      - front/*
+pr: none
+
+variables:
+  MAVEN_CACHE_FOLDER: $(Pipeline.Workspace)/.m2/repository
+  MAVEN_OPTS: '-Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)' 
+
+  # Container registry service connection established during pipeline creation
+  dockerfilePath: 'back/Dockerfile'
+  buildTag: '$(Build.BuildId)'
+  latestTag: 'latest'
+  
+pool:
+  vmImage: ubuntu-latest
+stages:
+  - stage: 'Build'
+    displayName: 'Build Spring Boot App'
+    jobs:
+    - job: 'build'
+      steps:
+        - task: Cache@2
+          inputs:      
+            key: 'maven | "$(Agent.OS)" | **/pom.xml'
+            restoreKeys: |
+              maven | "$(Agent.OS)"
+              maven
+            path: $(MAVEN_CACHE_FOLDER)
+          displayName: Cache Maven local repo
+          
+        - task: Maven@3
+          inputs:
+            mavenPomFile: "back/pom.xml"
+            mavenOptions: "-Xmx3072m"
+            javaHomeOption: "JDKVersion"
+            jdkVersionOption: "1.11"
+            jdkArchitectureOption: "x64"
+            publishJUnitResults: true
+            testResultsFiles: "**/surefire-reports/TEST-*.xml"
+            goals: "clean"
+            mavenAuthenticateFeed: true
+            options: "-X -P azure_artifacts $(MAVEN_OPTS) --llr -Dmaven.test.skip=true"
+          displayName: Build App
+
+
+  - stage: 'Test'
+    displayName: 'Test Spring Boot App'
+    jobs:
+    - job: 'JUNIT'
+      steps:
+        - task: Cache@2
+          inputs:      
+            key: 'maven | "$(Agent.OS)" | **/pom.xml'
+            restoreKeys: |
+              maven | "$(Agent.OS)"
+              maven
+            path: $(MAVEN_CACHE_FOLDER)
+          displayName: Cache Maven local repo
+        - task: Maven@3
+          inputs:
+            mavenPomFile: "back/pom.xml"
+            mavenOptions: "-Xmx3072m"
+            javaHomeOption: "JDKVersion"
+            jdkVersionOption: "1.11"
+            jdkArchitectureOption: "x64"
+            publishJUnitResults: true
+            testResultsFiles: "**/surefire-reports/TEST-*.xml"
+            goals: "clean"
+            mavenAuthenticateFeed: true
+            options: "-X -P azure_artifacts $(MAVEN_OPTS)"
+          displayName: Test App
+      timeoutInMinutes: 4
+
+
+  - stage: 'Release_Docker_Hub'
+    displayName: 'Release into DockerHub'
+    jobs:
+    - job: 'releaseDockerHub'
+      steps:
+        - task: Cache@2
+          inputs:      
+            key: 'maven | "$(Agent.OS)" | **/pom.xml'
+            restoreKeys: |
+              maven | "$(Agent.OS)"
+              maven
+            path: $(MAVEN_CACHE_FOLDER)
+          displayName: Cache Maven local repo
+        - task: Docker@2
+          inputs:
+            containerRegistry: 'dockerhubRepository'
+            repository: 'ovas04/back-vivavintage'
+            command: 'buildAndPush'
+            Dockerfile: '$(dockerfilePath)'
+            buildContext: '$(System.DefaultWorkingDirectory)/back/'
+            tags: |
+              $(buildTag)
+              $(latestTag)
+          displayName: Release Into DockerHub
+
+

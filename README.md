@@ -1,3 +1,4 @@
+
 ![image](https://github.com/No-Country/c12-12-m-java-react/assets/102260190/b2c91d97-872c-42a5-80f6-6fe01d0fe260)
 
 <h3>👉🏻 Nuestra plataforma de e-commerce tradicional ofrece un amplio catálogo de productos para aquellos interesados en la moda vintage, desde camperas, pantalones, camisas y remeras hasta calzados y objetos de uso personal como sombreros y billeteras.El website ofrece una expeiencia de usuario centrada en ser lo mas sencilla y eficiente posible.</h3>

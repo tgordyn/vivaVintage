@@ -1,0 +1,138 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  padding-bottom: 0;
+  background-color: #f2f2f2;
+  height: 100px;
+
+  @media (max-width: 767px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+  &__menu {
+    display: flex;
+    &-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #818181;
+      &:hover {
+        text-decoration: underline;
+        color: #212429;
+      }
+    }
+  }
+
+  &__menu-icon {
+    font-size: 24px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+    &-image {
+      width: 90px;
+      margin-right: 8px;
+      margin-left: 8px;
+    }
+
+    &-text {
+      font-size: 30px;
+      margin: 0;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: rgba(0, 0, 0, 0.5);
+    justify-content: flex-end;
+
+    &-icon {
+      font-size: 24px;
+      margin-right: 5px;
+    }
+
+    &-link {
+      text-decoration: none;
+
+      color: #818181;
+      margin-right: 10px;
+      &:hover {
+        text-decoration: underline;
+        color: #212429;
+      }
+    }
+  }
+
+  &__user {
+    position: relative;
+    cursor: pointer;
+
+    &-avatar {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: #ddd;
+      margin-right: 10px;
+      color: #818181;
+      cursor: pointer;
+      &:hover {
+        color: #212429;
+      }
+    }
+
+    &-dropdown {
+      position: absolute;
+      top: 72px;
+      right: 0;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      min-width: 100px;
+    }
+
+    &:hover {
+      &-dropdown {
+        display: block;
+      }
+    }
+
+    &-option {
+      display: block;
+      color: #212429;
+      text-decoration: none;
+      margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        text-decoration: underline;
+        color: #737373;
+      }
+    }
+  }
+
+  #avatar-icon {
+    &:hover {
+      text-decoration: underline;
+      color: #212429;
+    }
+  }
+}
+
+.header__logo:hover {
+  color: inherit;
+}

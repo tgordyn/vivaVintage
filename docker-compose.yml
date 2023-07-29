@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+
+  frontend:
+    image: ovas04/front-vivavintage:latest
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    networks:
+      - testing_network
+
+  backend:
+    image: ovas04/back-vivavintage:latest
+    networks:
+      - testing_network
+    ports:
+      - "8080:8080"
+networks:
+  testing_network:

@@ -1,0 +1,24 @@
+.Confirmation,
+.Error {
+  margin: 60px 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.Confirmation p,
+.Error p {
+  margin: 10px 0;
+}
+
+.Confirmation .content,
+.Error .content {
+  max-width: 500px;
+  margin: 10px auto;
+}
+
+.Confirmation .buttons,
+.Error .buttons {
+  margin-top: 20px;
+  text-align: right;
+}
