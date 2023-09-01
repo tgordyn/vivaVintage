@@ -2,7 +2,7 @@ import ImageProductSmall from "./ImageProductSmall";
 import { useState } from "react";
 
 function ImageProduct({image, name}) {
-  const [mainImage, setMainImage] = useState(image[0]);
+  const [mainImage, setMainImage] = useState(image);
 
   const handleSmallImageClick = (smallImage) => {
     setMainImage(smallImage);
@@ -19,9 +19,9 @@ function ImageProduct({image, name}) {
       </div>
 
       <div className="flex gap-2 justify-between">
-        <ImageProductSmall image={image[0]} alt="image 1" onClick={() => handleSmallImageClick(image[0])} />
-        <ImageProductSmall image={image[1]} alt="image 2" onClick={() => handleSmallImageClick(image[1])} />
-        <ImageProductSmall image={image[2]} alt="image 3" onClick={() => handleSmallImageClick(image[2])} />
+        <ImageProductSmall image={image} alt="image 1" onClick={() => handleSmallImageClick(image)} />
+        <ImageProductSmall image={image} alt="image 2" onClick={() => handleSmallImageClick(image)} />
+        <ImageProductSmall image={image} alt="image 3" onClick={() => handleSmallImageClick(image)} />
       </div>
     </div>
   );

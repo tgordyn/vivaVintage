@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import SignUp from "../pages/SignUp";
 import SignIn from "../pages/SignIn";
@@ -22,7 +22,7 @@ import Contact from "../pages/FooterPages/Contact";
 import Confirmation from "../components/Confirmation/Confirmation";
 
 function Router() {
-  const isLoggedIn = useSelector((state) => state.authReducer.isLoggedIn);
+  //const isLoggedIn = useSelector((state) => state.authReducer.isLoggedIn);
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -37,7 +37,8 @@ function Router() {
             path="/cart"
             element={isLoggedIn ? <Cart /> : <Navigate to="/sign-in" />}
           /> */}
-          <Route path="/confirmation" element={isLoggedIn ? <Confirmation /> : <Navigate to="/sign-in"/> } />
+          {/* <Route path="/confirmation" element={isLoggedIn ? <Confirmation /> : <Navigate to="/sign-in"/> } /> */}
+          <Route path="/confirmation" element={<Confirmation />} />
           <Route path="/forgotpassword" element={<UnderConstruction />} />
           {/* Footer pages */}
           <Route path="/shipping-method" element={<ShippingMethod />} />

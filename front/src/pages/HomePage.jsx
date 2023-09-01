@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Carrousel from "../components/Carrousel/Carrousel";
@@ -22,12 +22,12 @@ const HomePage = () => {
   const getProducts = async () => {
     try {
       const { data } = await axios.get(
-        //`https://apimocha.com/vivavintage/products`
-        `https://backvivavintage.azurewebsites.net/product`
+        `https://apimocha.com/vivavintage/products`
+        //`https://backvivavintage.azurewebsites.net/product`
       );
 
       const lastAccessories = data.filter(
-        (prod) => prod.category === "accessories"
+        (prod) => prod.category === "accesories"
       );
 
       const lastHats = data.filter((prod) => prod.category === "hats");
@@ -68,7 +68,7 @@ const HomePage = () => {
             Todo Camisas
           </h2>
           <p className="text-base md:text-2xl md:w-[680px]">
-            Pull&Bear, H&M, Zara, Bershka, New Yorker, Reserved, Colin's, Asos
+            Pull&Bear, H&M, Zara, Bershka, New Yorker, Reserved, Colins, Asos
           </p>
 
           <Link to="/categoria/camisas-remeras">

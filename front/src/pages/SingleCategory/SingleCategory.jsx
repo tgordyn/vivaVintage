@@ -35,7 +35,7 @@ const SingleCategory = () => {
   } else if (cat === "camperas") {
     selectedCategory = "jackets";
   } else if (cat === "accesorios") {
-    selectedCategory = "accessories";
+    selectedCategory = "accesories";
   } else if (cat === "calzados") {
     selectedCategory = "shoes";
   }
@@ -93,17 +93,42 @@ const SingleCategory = () => {
       setIsLoading(true);
 
       const { data } = await axios.get(
-        //`https://apimocha.com/vivavintage/products`
-        `https://backvivavintage.azurewebsites.net/product`
+        `https://apimocha.com/vivavintage/products`
+        // `https://backvivavintage.azurewebsites.net/product`
+        //`http://localhost:3001/api/products`
         //`http://localhost:9090/product`
       );
 
       setIsLoading(false);
       setProductData(data);
+      console.log(data, "prodsss")
     } catch (error) {
-      console.log(error);
+
+      console.log("hola", error);
     }
   };
+
+  // const getCategoryProduct = async () => {
+  //   try {
+  //     setIsLoading(true);
+  
+  //     const response = await fetch("http://localhost:3001/api/products");
+  
+  //     if (!response.ok) {
+  //       // Manejar errores si la respuesta no es exitosa (por ejemplo, 404)
+  //       throw new Error(`HTTP error! Status: ${response.status}`);
+  //     }
+  
+  //     const data = await response.json();
+  
+  //     setIsLoading(false);
+  //     setProductData(data);
+  //     console.log(data, "prodsss");
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //   }
+  // };
+
 
   const loading = isLoading ? (
     <Container

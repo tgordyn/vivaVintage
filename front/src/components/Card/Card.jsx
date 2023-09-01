@@ -6,7 +6,7 @@ import {
   Rating,
   CardContent,
   Typography,
-  Button,
+  //Button,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import "./Card.scss";
@@ -32,7 +32,7 @@ export default function ProductCard({ prod, cat }) {
           <Box className="cart_box">
             <img
               alt={prod.name}
-              src={prod.image1}
+              src={prod.image}
               loading="lazy"
               className="cart_img"
             />

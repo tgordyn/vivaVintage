@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { Rating } from "@mui/material";
-import { BsHeart } from "react-icons/bs";
+//import { BsHeart } from "react-icons/bs";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import Loading from "../components/Loading";
 import ImageProduct from "../components/ProductDetails/ImageProduct/ImageProduct";
@@ -65,8 +65,8 @@ export default function ProductDetail() {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `https://backvivavintage.azurewebsites.net/product`
-          // `https://apimocha.com/vivavintage/products`
+          //`https://backvivavintage.azurewebsites.net/product`
+          `https://apimocha.com/vivavintage/products`
         );
 
         const productData = response.data.find(
@@ -108,7 +108,7 @@ export default function ProductDetail() {
       <div className="py-5 px-3 lg:px-40">
         <div className="flex flex-col lg:flex-row gap-10 font-serif place-content-center">
           <ImageProduct
-            image={[product.image1, product.image2, product.image3]}
+            image={product.image}
             name={product.name}
           />
 

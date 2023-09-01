@@ -29,7 +29,7 @@ const ShowCart = ({ state, addItem, removeItem }) => {
     subtotal += item.price * item.qty;
     totalItems += item.qty;
   });
-  const isLoggedIn = useSelector((state) => state.authReducer.isLoggedIn);
+  //const isLoggedIn = useSelector((state) => state.authReducer.isLoggedIn);
   const shippingOptions = [
     {
       id: "free",
@@ -63,7 +63,7 @@ const ShowCart = ({ state, addItem, removeItem }) => {
                               data-mdb-ripple-color="light"
                             >
                               <img
-                                src={item.image1}
+                                src={item.image}
                                 alt={item.title}
                                 className="w-[100px] h-[100px] md:object-contain"
                               />
@@ -133,7 +133,7 @@ const ShowCart = ({ state, addItem, removeItem }) => {
                     </li>
                   </ul>
 
-                  {isLoggedIn ? (
+                  {/* {isLoggedIn ? ( */}
                     <GooglePayButton
                       buttonSizeMode="fill"
                       environment="TEST"
@@ -188,12 +188,12 @@ const ShowCart = ({ state, addItem, removeItem }) => {
                         navigate("/confirmation");
                       }}
                     />
-                  ) : (
+                  {/* ) : (
                     <div style={{ fontWeight: "700" }}>
                       Para finalizar con el pago debe{" "}
                       <a href="/sign-in">loguearse</a>{" "}
                     </div>
-                  )}
+                  )} */}
 
                   <p className="text-base font-mont mt-2">
                     *Por ahora solo disponibles los pagos con Google Pay <br />

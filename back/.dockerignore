@@ -1,9 +1,0 @@
-plugins/
-libraries/
-conf/
-.idea/
-*.iml
-*.iws
-target/
-.sonar/
-.sonarlint/
