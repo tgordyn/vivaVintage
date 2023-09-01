@@ -2,7 +2,7 @@
 
 <h3>👉🏻 Nuestra plataforma de e-commerce tradicional ofrece un amplio catálogo de productos para aquellos interesados en la moda vintage, desde camperas, pantalones, camisas y remeras hasta calzados y objetos de uso personal como sombreros y billeteras.El website ofrece una expeiencia de usuario centrada en ser lo mas sencilla y eficiente posible.</h3>
 
-<h3>👉🏻 <b>Visita nuestra website en <a href="https://vivavintage.azurewebsites.net/">VivaVintage Store</a></b></h3>
+<h3>👉🏻 <b>Visita nuestra website en <a href="https://viva-vintage-vi23.vercel.app">VivaVintage Store</a></b></h3>
 
 <h3>👉🏻 <b>Ve nuestro vídeo promocional en <a href="https://drive.google.com/file/d/1TgmxBGD8X1XfabsK7aCac5BEiZs6BL7Y/view">Video VivaVintage</a></b></h3>
 
